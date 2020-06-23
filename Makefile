@@ -1,3 +1,4 @@
+NUM:=1
 
 all:install build
 
@@ -8,13 +9,17 @@ install:
 build:
 	cd model/utils/nms/; python build.py build_ext --inplace
 	cd data; python3 generate_task_json.py
+	cd weights; sh ./download_weights.sh
 
 clean:
 	@rm -rf *.log
 
 run:
 	./run_server.sh street_5 yolo 11112
-	./run_client.sh street_5 5 yolo 11112
+	./run_client.sh street_5 $(NUM) yolo 11112
 
 stop:
-	./stop.sh
+	./stop.sh street_5 yolo
+
+watch:
+	watch -n 1 nvidia-smi

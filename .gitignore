@@ -1,8 +1,11 @@
 __pycache__
+__backup__
 .vscode
 .idea
 *.log
 *.o
+*.pkl
 _nms*.c
 _nms*.so
 experiments/logs/
+weights/darknet*

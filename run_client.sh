@@ -27,9 +27,10 @@ if [ ! -n "$PORT" ];then
 	exit
 fi
 
+#--gpu $((($i % 8)))\
 for i in $(seq 1 ${NUM_CLIENT}); do
 	nohup python3 fl_client.py \
-	     --gpu $((($i % 8)))\
+	     --gpu 0 \
 	     --config_file data/task_configs/${MODEL}/${DATASET}/${MODEL}_task$i.json \
 	     --ignore_load True \
 	     --port ${PORT} > ${MODEL}_task$i.log &
