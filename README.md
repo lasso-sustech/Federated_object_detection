@@ -7,8 +7,9 @@ We present a real-world image dataset, reflecting the characteristic real-world 
 * Please firstly ensure you have **CUDA 10.2** installed.
 * Run `make` to install dependencies, build cython files, and generate task json files.
 * For training, simply run `make run` to start and `make stop` to stop the training process.
-    * during training, use `make watch` to see if the training is going on.
-    * use `make run NUM=5` to take 5 clients in training.
+    * during training, use `make watch` to see if the training is going on;
+    * use `make run NUM=5` to have 5 clients in training (at least 5);
+    * the `run_client.sh` script currently have only GPU-1 in work.
 
 ### Resources
 * Dataset: [dataset.fedai.org](https://dataset.fedai.org)
@@ -22,8 +23,8 @@ We implemented two mainstream object detection algorithms (YOLOv3 and Faster R-C
 * [Dataset_description.md](https://github.com/FederatedAI/FATE/blob/master/research/federated_object_detection_benchmark/README.md)
 
 ### Citation
-* If you use this code or dataset for your research, please kindly cite our paper:
-```bash
+If you use this code or dataset for your research, please kindly cite our paper:
+```latex
 @article{luo2019real,
   title={Real-World Image Datasets for Federated Learning},
   author={Luo, Jiahuan and Wu, Xueyang and Luo, Yun and Huang, Anbu and Huang, Yunfeng and Liu, Yang and Yang, Qiang},

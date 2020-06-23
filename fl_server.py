@@ -88,7 +88,7 @@ class Aggregator(object):
         self.train_losses += [[cur_round, cur_time, aggr_loss]]
         return aggr_loss
 
-    # cur_round coule be None
+    # cur_round could be None
     def aggregate_loss_accuracy_recall(self, client_losses, client_maps, client_recalls, client_sizes, cur_round):
         cur_time = int(round(time.time())) - self.training_start_time
         aggr_loss, aggr_map, aggr_recall = self.aggregate_loss_map_recall(client_losses, client_maps, client_recalls,
@@ -330,7 +330,6 @@ class FLServer(object):
                     self.check_client_resource()
 
     def check_client_resource(self):
-
         self.client_resource = {}
         client_sids_selected = random.sample(list(self.ready_client_sids), self.NUM_CLIENTS_CONTACTED_PER_ROUND)
         print('send weights')
@@ -338,6 +337,7 @@ class FLServer(object):
             emit('check_client_resource', {
                 'round_number': self.current_round,
             }, room=rid)
+        pass
 
     # Note: we assume that during training the #workers will be >= MIN_NUM_WORKERS
     def train_next_round(self, client_sids_selected):
@@ -393,6 +393,8 @@ if __name__ == '__main__':
         raise FileNotFoundError("{} dose not exist".format(opt.config_file))
     try:
         server = FLServer(opt.config_file, "127.0.0.1", opt.port)
+        logging.getLogger('werkzeug').setLevel(logging.ERROR)
+        logging.getLogger('engineio.server').setLevel(logging.ERROR)
         print("listening on 127.0.0.1:{}".format(str(opt.port)))
         server.start()
     except ConnectionError:

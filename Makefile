@@ -1,10 +1,14 @@
-NUM:=1
+NUM:=5
 
 all:install build
 
 install:
-	pip3 install cupy-cuda102 cython --user -i https://mirrors.huaweicloud.com/repository/pypi/simple
-	pip3 install -r requirements.txt --user -i https://mirrors.huaweicloud.com/repository/pypi/simple
+	#https://mirrors.huaweicloud.com/repository/pypi/simple
+	pip3 install cupy-cuda102 cython --user -i https://pypi.tuna.tsinghua.edu.cn/simple
+	pip3 install -r requirements.txt --user -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+uninstall:
+	pip3 uninstall -r requirements -y
 
 build:
 	cd model/utils/nms/; python build.py build_ext --inplace
@@ -16,6 +20,7 @@ clean:
 
 run:
 	./run_server.sh street_5 yolo 11112
+	sleep 2
 	./run_client.sh street_5 $(NUM) yolo 11112
 
 stop:

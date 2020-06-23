@@ -27,6 +27,6 @@ if [ ! -d "experiments/logs/`date +'%m%d'`/${MODEL}/${DATASET}" ];then
 fi
 
 LOG="experiments/logs/`date +'%m%d'`/${MODEL}/${DATASET}/fl_server.log"
-echo Loggin output to "$LOG"
+echo Logging output to "$LOG"
 
 nohup python3 fl_server.py --config_file data/task_configs/${MODEL}/${DATASET}/${MODEL}_task.json --port ${PORT} > ${LOG} &

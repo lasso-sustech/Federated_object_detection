@@ -152,7 +152,7 @@ class FederatedClient(object):
 
             self.logger.info("client_train_loss {}".format(train_loss))
 
-            if 'aggregation' in req and req['aggregation']:
+            if 'aggregation' in req and req['aggregation']: #NOTE: disabled from server side
                 client_test_loss, client_test_map, client_test_recall = self.local_model.evaluate()
                 client_test_map = np.nan_to_num(client_test_map)
                 client_test_recall = np.nan_to_num(client_test_recall)
@@ -255,7 +255,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--gpu", type=int, required=True, help="which GPU to run")
     parser.add_argument("--config_file", type=str, required=True, help="task config file")
-    parser.add_argument("--ignore_load", default=True, help="wheter ignore load of not")
+    parser.add_argument("--ignore_load", default=True, help="whether ignore load or not")
     parser.add_argument("--port", type=int, required=True, help="server port")
     opt = parser.parse_args()
     print(opt)
