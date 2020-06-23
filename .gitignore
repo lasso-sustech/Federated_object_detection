@@ -1,0 +1,8 @@
+__pycache__
+.vscode
+.idea
+*.log
+*.o
+_nms*.c
+_nms*.so
+experiments/logs/
