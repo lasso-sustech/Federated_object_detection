@@ -1,9 +1,16 @@
 # Federated-Benchmark: A Benchmark of Real-world Images Dataset for Federated Learning
 
-## Overview
+### Overview
 We present a real-world image dataset, reflecting the characteristic real-world federated learning scenarios, and provide an extensive benchmark on model performance, efficiency, and communication in a federated learning setting.
 
-## Resources
+### Get Start
+* Please firstly ensure you have **CUDA 10.2** installed.
+* Run `make` to install dependencies, build cython files, and generate task join files.
+* For training, simply run `make run` to start and `make stop` to stop the training process.
+    * during training, use `make watch` to see if the training is going on.
+    * use `make run NUM=5` to take 5 clients in training.
+
+### Resources
 * Dataset: [dataset.fedai.org](https://dataset.fedai.org)
 * Paper: ["Real-World Image Datasets for Federated Learning"](https://arxiv.org/abs/1910.11089)
 
@@ -13,13 +20,6 @@ We implemented two mainstream object detection algorithms (YOLOv3 and Faster R-C
 * Details: 7 different classes, 956 images with pixels of 704 by 576, 5 or 20 devices
 * Task: Object detection for federated learning
 * [Dataset_description.md](https://github.com/FederatedAI/FATE/blob/master/research/federated_object_detection_benchmark/README.md)
-
-### Get Start
-* Please firstly ensure you have **CUDA 10.2** installed.
-* Run `make` to install dependencies, build cython files, and generate task join files.
-* For training, simply run `make run` to start and `make stop` to stop the training process.
-    * during training, use `make watch` to see if the training is going on.
-    * use `make run NUM=5` to take 5 clients in training.
 
 ### Citation
 * If you use this code or dataset for your research, please kindly cite our paper:
