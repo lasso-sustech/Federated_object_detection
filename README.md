@@ -5,7 +5,7 @@ We present a real-world image dataset, reflecting the characteristic real-world 
 
 ### Get Start
 * Please firstly ensure you have **CUDA 10.2** installed.
-* Run `make` to install dependencies, build cython files, and generate task join files.
+* Run `make` to install dependencies, build cython files, and generate task json files.
 * For training, simply run `make run` to start and `make stop` to stop the training process.
     * during training, use `make watch` to see if the training is going on.
     * use `make run NUM=5` to take 5 clients in training.
