@@ -178,7 +178,7 @@ class FederatedClient(object):
                 self.local_model.set_weights(weights)
             print('get weights')
 
-            self.logger.info("reciving weight time is {}".format(time.time() - cur_time))
+            self.logger.info("receiving weight time is {}".format(time.time() - cur_time))
             server_loss, server_map, server_recall = self.local_model.evaluate()
             server_map = np.nan_to_num(server_map)
             server_recall = np.nan_to_num(server_recall)

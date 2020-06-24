@@ -1,6 +1,6 @@
 numpy
-torch==1.3.0
-torchvision==0.4.2
+torch
+torchvision
 matplotlib
 terminaltables
 pillow

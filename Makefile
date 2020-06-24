@@ -3,12 +3,11 @@ NUM:=5
 all:install build
 
 install:
-	#https://mirrors.huaweicloud.com/repository/pypi/simple
-	pip3 install cupy-cuda102 cython --user -i https://pypi.tuna.tsinghua.edu.cn/simple
-	pip3 install -r requirements.txt --user -i https://pypi.tuna.tsinghua.edu.cn/simple
+	pip3 install cupy-cuda102 cython --user --trusted-host https://mirrors.huaweicloud.com -i https://mirrors.huaweicloud.com/repository/pypi/simple --timeout 60
+	pip3 install -r requirements.txt --user --trusted-host https://mirrors.sustc.us -i https://mirrors.sustc.us/pypi/simple --timeout 60
 
 uninstall:
-	pip3 uninstall -r requirements -y
+	pip3 uninstall -r requirements.txt -y
 
 build:
 	cd model/utils/nms/; python build.py build_ext --inplace
@@ -16,7 +15,7 @@ build:
 	cd weights; sh ./download_weights.sh
 
 clean:
-	@rm -rf *.log
+	@rm -rf *.log *.pkl
 
 run:
 	./run_server.sh street_5 yolo 11112
