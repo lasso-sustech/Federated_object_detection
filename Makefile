@@ -1,4 +1,4 @@
-NUM:=5
+NUM:=1
 
 all:install build
 

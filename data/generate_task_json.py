@@ -67,10 +67,10 @@ if model == "faster":
     server_task_config["log_dir"] = "{}/{}".format(model, dataset)
     server_task_config["data_path"] = "data/Street_voc/total"
     server_task_config["model_path"] = "faster_model.pkl"
-    server_task_config["MIN_NUM_WORKERS"] = num_client
+    server_task_config["MIN_NUM_WORKERS"] = 1 #FIXME: num_client, reduced to 1 for test purpose
     server_task_config["MAX_NUM_ROUNDS"] = 1000
     server_task_config["NUM_TOLERATE"] = -1
-    server_task_config["NUM_CLIENTS_CONTACTED_PER_ROUND"] = num_client
+    server_task_config["NUM_CLIENTS_CONTACTED_PER_ROUND"] = server_task_config["MIN_NUM_WORKERS"]
     server_task_config["ROUNDS_BETWEEN_VALIDATIONS"] = 1000
     with open(server_task_file, "w") as f:
         json.dump(server_task_config, f, indent=4)
@@ -108,10 +108,10 @@ elif model == "yolo":
     server_task_config["model_config"] = os.path.join("data", "task_configs", model, dataset, "yolo_model.json")
     server_task_config["log_dir"] = "{}/{}".format(model, dataset)
     server_task_config["model_path"] = "yolo_model.pkl"
-    server_task_config["MIN_NUM_WORKERS"] = num_client
+    server_task_config["MIN_NUM_WORKERS"] = 1 #FIXME: num_client, reduced to 1 for test purpose
     server_task_config["MAX_NUM_ROUNDS"] = 1000
     server_task_config["NUM_TOLERATE"] = -1
-    server_task_config["NUM_CLIENTS_CONTACTED_PER_ROUND"] = num_client
+    server_task_config["NUM_CLIENTS_CONTACTED_PER_ROUND"] = server_task_config["MIN_NUM_WORKERS"]
     server_task_config["ROUNDS_BETWEEN_VALIDATIONS"] = 1000
     with open(server_task_file, "w") as f:
         json.dump(server_task_config, f, indent=4)
